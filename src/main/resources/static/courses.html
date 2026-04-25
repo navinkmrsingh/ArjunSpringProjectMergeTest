@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!-- Husna Syeda
+    UID: 393005210
+    Course Management Page
+    ISTE 240 - GROUP 1
+-->
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Management</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/page-styles.css">
+</head>
+
+<body>
+
+<header>
+    <h1><i class="fas fa-book"></i> Course Management</h1>
+</header>
+
+<div class="container">
+    <!-- Toast Notifications -->
+    <div id="toastContainer"></div>
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <a href="/index.html" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        <h2>Manage Courses</h2>
+        <div style="width: 150px;"></div>
+    </div>
+
+    <div class="custom-card">
+        <h4 class="mb-3"><i class="fas fa-search"></i> Search Courses</h4>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <input type="text" id="searchName" class="form-control" placeholder="Search by course name...">
+                    <button onclick="searchCourses()" class="btn btn-outline-success"><i class="fas fa-search"></i>
+                        Search</button>
+                    <button onclick="loadCourses()" class="btn btn-outline-secondary"><i class="fas fa-sync"></i>
+                        Show All</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="custom-card">
+        <h4 class="mb-3"><i class="fas fa-plus-circle"></i> Add / Edit Course</h4>
+
+        <input type="hidden" id="courseId">
+
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <label for="courseName" class="form-label">Course Name</label>
+                <input type="text" id="courseName" class="form-control" placeholder="Course Name">
+            </div>
+            <div class="col-md-4">
+                <label for="courseCode" class="form-label">Course Code</label>
+                <input type="text" id="courseCode" class="form-control" placeholder="e.g. ISTE240">
+            </div>
+            <div class="col-md-4">
+                <label for="credits" class="form-label">Credits</label>
+                <input type="number" id="credits" class="form-control" placeholder="Credits" min="1" max="6">
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="department" class="form-label">Department</label>
+                <input type="text" id="department" class="form-control" placeholder="Department">
+            </div>
+            <div class="col-md-6">
+                <label for="tutorId" class="form-label">Assigned Tutor</label>
+                <select id="tutorId" class="form-select">
+                    <option value="">-- No Tutor Assigned --</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea id="description" class="form-control" placeholder="Description" rows="3"></textarea>
+        </div>
+
+        <button onclick="saveCourse()" class="btn btn-success"><i class="fas fa-save"></i> Save</button>
+        <button onclick="clearForm()" class="btn btn-secondary"><i class="fas fa-eraser"></i> Clear</button>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-hover table-striped align-middle">
+            <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Code</th>
+                <th>Course Name</th>
+                <th>Credits</th>
+                <th>Department</th>
+                <th>Tutor</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody id="courseTable"></tbody>
+        </table>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/courses.js"></script>
+
+</body>
+
+</html>
