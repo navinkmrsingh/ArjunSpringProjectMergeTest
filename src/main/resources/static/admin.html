@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Management</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<header>
+  <h1>Admin Management</h1>
+</header>
+
+<div class="nav-left">
+  <a href="/index.html" class="btn">Back to Home</a>
+</div>
+
+<div class="container">
+
+  <div class="card">
+    <h3>Search Admins</h3>
+    <input type="text" id="searchName" placeholder="Search by name">
+    <button onclick="loadAdmins()" class="btn">Search / Show All</button>
+  </div>
+
+  <div class="card">
+    <h3>Add / Edit Admin</h3>
+
+    <input type="hidden" id="adminId">
+
+    <input type="text" id="name" placeholder="Name"><br><br>
+    <input type="email" id="email" placeholder="Email"><br><br>
+    <input type="text" id="department" placeholder="Department"><br><br>
+
+    <button onclick="saveAdmin()" class="btn">Save</button>
+    <button onclick="clearForm()" class="btn">Clear</button>
+  </div>
+
+  <div class="card">
+    <h3>Admins List</h3>
+
+    <table>
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Department</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody id="adminTable"></tbody>
+    </table>
+  </div>
+
+</div>
+<script src="/admin.js"></script>
+</body>
+</html>
