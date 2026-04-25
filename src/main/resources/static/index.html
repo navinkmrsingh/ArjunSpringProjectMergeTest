@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tutoring Center - Home</title>
+    <style>
+        body {
+            background-color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: #000000;
+            color: #F76902; /* RIT Orange */
+            padding: 20px 0;
+            border-bottom: 5px solid #F76902;
+        }
+        .container {
+            padding: 40px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        h1 { margin: 0; font-size: 2.5em; }
+        p { color: #333; line-height: 1.6; font-size: 1.1em; }
+
+        /* Navigation Cards */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .card {
+            border: 2px solid #F76902;
+            border-radius: 10px;
+            padding: 20px;
+            transition: 0.3s;
+            background-color: #f9f9f9;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .card h3 { color: #000; border-bottom: 1px solid #ccc; padding-bottom: 10px; }
+
+        .btn {
+            display: inline-block;
+            background-color: #F76902;
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        .btn:hover { background-color: #000; }
+
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #eee;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Tutoring Center Management</h1>
+</header>
+
+<div class="container">
+    <h2>Welcome to the Portal</h2>
+    <p>
+        The Tutoring Center Website is a centralized platform designed to streamline
+        communication between students, tutors and administrators.
+    </p>
+
+    <div class="menu-grid">
+        <div class="card">
+            <h3>Course Management</h3>
+            <p>Maintain the list of supported academic courses.</p>
+            <a href="/courses" class="btn">View All Courses</a>
+            <a href="/courses/add" class="btn">Add New Course</a>
+        </div>
+
+        <div class="card">
+            <h3>Tutor Profiles</h3>
+            <p>Manage tutor information and subject offerings.</p>
+            <a href="/tutors" class="btn">View Our Tutors</a>
+            <a href="/tutors/add" class="btn">Register as Tutor</a>
+        </div>
+
+        <div class="card">
+            <h3>Tutoring Requests</h3>
+            <p>Track student help requests and their current status.</p>
+            <a href="/requests" class="btn">View All Requests</a>
+            <a href="/requests/add" class="btn">Submit New Request</a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    &copy; 2026 Tutoring Center | ISTE-240 Project | Group 1
+</footer>
+
+</body>
+</html>
