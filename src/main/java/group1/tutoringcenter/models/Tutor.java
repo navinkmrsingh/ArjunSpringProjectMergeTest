@@ -1,18 +1,51 @@
+/**  
+ * Arjun Gupta
+ * UID: 415003018
+ * Entity: Tutor
+ * ISTE 240 - Group 1
+*/
+
 package group1.tutoringcenter.models;
 
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "tutors")
 public class Tutor {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(nullable = false, length = 100)
+    @NotBlank(message = "Name cannot be blank")
     private String name;
+
+    @Column(nullable = false, unique = true, length = 100)
+    @Email(message = "Email should be valid")
+    @NotBlank(message = "Email cannot be blank")
     private String email;
+
+    @Column(nullable = false, length = 100)
+    @NotBlank(message = "Password cannot be blank")
     private String password;
+
+    @Column(nullable = false)
+    @Min(value = 0, message = "Experience must be non-negative")
     private int experience;
+
+    @Column(length = 500)
     private String bio;
 
-    // NEED CourseService to link Tutors and courses
-    private List<Course> courses_taught = new ArrayList<Course>();
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(
+        name = "tutor_courses",
+        joinColumns = @JoinColumn(name = "tutor_id"),
+        inverseJoinColumns = @JoinColumn(name = "course_id")
+    )
+    private List<Course> courses_taught = new ArrayList<>();
 
     public Tutor() {
     }

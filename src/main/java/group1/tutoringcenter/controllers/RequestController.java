@@ -4,7 +4,9 @@ import group1.tutoringcenter.services.TutoringCenterService;
 import group1.tutoringcenter.models.Request;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class RequestController {
@@ -15,33 +17,25 @@ public class RequestController {
         this.service = service;
     }
 
-    // show all requests
     @GetMapping("/request")
     public String showRequestsPage(Model model) {
         model.addAttribute("requests", service.getRequests());
         return "request";
     }
 
-    // show add request page
     @GetMapping("/request/add")
     public String showAddRequestPage() {
         return "request_add";
     }
 
-    // handle form submit
     @PostMapping("/request/add")
     public String addRequest(@RequestParam String studentName,
                              @RequestParam String status) {
 
         int newId = service.getRequests().size() + 1;
+        Request newRequest = new Request(newId, studentName, status);
+        service.addRequest(newRequest);
 
-        Request request = new Request();
-        request.setId(newId);
-        request.setStudentName(studentName);
-        request.setStatus(status);
-
-        service.addRequest(request);
-
-        return "redirect:/success";
+        return "redirect:/add/success/request";
     }
 }

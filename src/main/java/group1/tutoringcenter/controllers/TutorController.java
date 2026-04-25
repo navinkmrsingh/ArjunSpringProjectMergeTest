@@ -1,3 +1,10 @@
+/**  
+ * Arjun Gupta
+ * UID: 415003018
+ * Entity: Tutor
+ * ISTE 240 - Group 1
+*/
+
 package group1.tutoringcenter.controllers;
 
 import group1.tutoringcenter.models.Tutor;
@@ -10,11 +17,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-<<<<<<< HEAD
-=======
 import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
->>>>>>> 15834793b37afd1db56af073f4bd8dc16cbd0dc7
 
 @Controller
 public class TutorController {
@@ -73,19 +77,9 @@ public class TutorController {
     }
 
     @GetMapping("/tutors/add")
-<<<<<<< HEAD
-    public String addtutor() {
-
-        return "tutors_form";
-    }
-}
-
-
-=======
     public String addtutor(Model model) {
         model.addAttribute("course_list", courseService.getCourses());
         return "tutors_form";
     }
 
 }
->>>>>>> 15834793b37afd1db56af073f4bd8dc16cbd0dc7

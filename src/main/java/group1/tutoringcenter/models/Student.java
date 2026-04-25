@@ -1,59 +1,35 @@
 package group1.tutoringcenter.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 
-@Entity
+
 public class Student {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+    private int id;
     private String name;
     private String email;
+
+
     private String enrolledCourse;
 
     public Student() {
     }
 
+
     public Student(String email, String name, String enrolledCourse) {
-        this.email = email;
+        this.email=email;
         this.name = name;
+
         this.enrolledCourse = enrolledCourse;
     }
 
-    public Long getId() {
-        return id;
-    }
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
 
-    public String getName() {
-        return name;
-    }
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getEnrolledCourse() {
-        return enrolledCourse;
-    }
-
-    public void setEnrolledCourse(String enrolledCourse) {
-        this.enrolledCourse = enrolledCourse;
-    }
+    public String getEnrolledCourse() { return enrolledCourse; }
+    public void setEnrolledCourse(String enrolledCourse) { this.enrolledCourse = enrolledCourse; }
 }
